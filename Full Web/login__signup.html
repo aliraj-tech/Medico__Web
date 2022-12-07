@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Sign up</title>
+    <!-- Font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        #login {
+            background-color: #F8F8F8;
+        }
+        .btn-outline-secondary:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .btn-check:checked+.btn,
+        .btn.active,
+        .btn.show,
+        .btn:first-child:active,
+        :not(.btn-check)+.btn:active {
+            color: black;
+            background-color: white;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button{
+            appearance: none;
+        }
+
+        .seperator{
+            height: 20px;
+        }
+        svg{
+            width: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="cart__items">
+        <div class="d-flex justify-content-between p-4">
+            <h3>Cart Summary</h3>
+            <button class="btn" id="cart__close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="simplecart_area">
+            <div class="simplecart_cart">
+                <span class="showCart">
+                    <span class="fa fa-shopping-cart"></span>
+                    <span class="simpleCart_quantity"></span> items - <span class="simpleCart_total"></span>
+                    <span class="dropdown fa fa-chevron-circle-down"></span>
+                </span>
+                <button class="simpleCart_checkout">Checkout</button>
+                <div id="cartPopover" style="display:none">
+                    <div class="simpleCart_items"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Medico Web</a>
+                <div>
+
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="mx-md-2">
+                            <button type="button" class="btn btn-primary position-relative" id="cart__btn">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                               
+                            </button>
+                        </li>
+                        <li>
+                            <small><a class="nav-link" href="login__signup.html" style="letter-spacing: 2px;">Login |
+                                    Sign up</a></small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="bottom__header d-flex justify-content-between">
+            <!-- <div class="explore me-auto">
+                <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Explore services
+                </button>
+                <ul class="dropdown-menu" style="padding: 0;background-color: #F6F5F5;">
+                    <li class="dropdown-item"><a href="" class="text-black"> Medicines</a></li>
+                    <hr class="dropdown-divider">
+                    <li class="dropdown-item"><a href="" class="text-black"> Doctor Consults</a></li>
+                    <hr class="dropdown-divider">
+                    <li class="dropdown-item"><a href="" class="text-black"> Pharmacy</a></li>
+                    <hr class="dropdown-divider">
+                    <li class="dropdown-item"><a href="" class="text-black"> Home Service</a></li>
+                </ul>
+            </div> -->
+            <div class="d-flex justify-content-center align-items-center" id="services">
+                <ul class="d-flex m-0 avalibilty" id="services">
+                    <li class="px-3"><a href="index.html">MEDICINES</a></li>
+                    <li class="px-3"><a href="personal__care.html">PERSONAL CARE</a></li>
+                    <li class="px-3"><a href="contact.html">Contact us</a></li>
+                    <li class="px-3"></li>
+                    <!-- <li class="px-3"><a href="#">ORGANIC</a></li>
+              <li class="px-3"><a href="#">HOME ESSENTIALS</a></li>
+              <li class="px-3"><a href="#">HEALTHCARE DEVICES</a></li> -->
+                </ul>
+                <button class="btn text-white rounded-0" style="background-color: #FB5F50; height: 100%;">
+                    <i class="fa-solid fa-location-dot"></i>
+                    DELIVERED TO KARACHI
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="my-5">
+        <div class="container shadow-lg px-5" id="login">
+            <h1 class="text-center pt-5">Login or Register</h1>
+            <div class="row">
+                <div class="col p-5">
+                    <img src="https://static-assets.dawaai.pk/img/labtest-carousel.png" class="img-fluid" alt="">
+                </div>
+                <div class="col p-5 d-flex flex-column">
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        <input type="number" class="form-control form-control-lg"  placeholder="03173775920">
+                    </div>
+                    <button class="btn btn-primary btn-lg">Continue</button>
+                    <div class="seperator position-relative">
+                        <hr class="my-4">
+                        <span class="bg-white position-absolute top-50 start-50 px-3 translate-middle-x">OR</span>
+                    </div>
+                    <button class="btn btn-outline-primary my-4 btn-lg">Login with Password</button>
+                    <div class="d-flex gap-3">
+                        <button class="btn rounded-1 border flex-grow-1"><i class="fa-brands fa-square-facebook text-primary"></i> Facebook </button>
+                        <button class="btn rounded-1 border flex-grow-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 533.5 544.3">
+                                <path
+                                    d="M533.5 278.4c0-18.5-1.5-37.1-4.7-55.3H272.1v104.8h147c-6.1 33.8-25.7 63.7-54.4 82.7v68h87.7c51.5-47.4 81.1-117.4 81.1-200.2z"
+                                    fill="#4285f4" />
+                                <path
+                                    d="M272.1 544.3c73.4 0 135.3-24.1 180.4-65.7l-87.7-68c-24.4 16.6-55.9 26-92.6 26-71 0-131.2-47.9-152.8-112.3H28.9v70.1c46.2 91.9 140.3 149.9 243.2 149.9z"
+                                    fill="#34a853" />
+                                <path d="M119.3 324.3c-11.4-33.8-11.4-70.4 0-104.2V150H28.9c-38.6 76.9-38.6 167.5 0 244.4l90.4-70.1z"
+                                    fill="#fbbc04" />
+                                <path
+                                    d="M272.1 107.7c38.8-.6 76.3 14 104.4 40.8l77.7-77.7C405 24.6 339.7-.8 272.1 0 169.2 0 75.1 58 28.9 150l90.4 70.1c21.5-64.5 81.8-112.4 152.8-112.4z"
+                                    fill="#ea4335" />
+                            </svg>
+                             Google 
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container p-5">
+            <div class="row">
+                <div class="col">
+                    <h3>Medico Web</h3>
+                    <ul class="p-0">
+                        <li><a href=""> Careers</a></li>
+                        <li><a href=""> Blog</a></li>
+                        <li><a href=""> About us</a></li>
+                        <li><a href=""> Contact us</a></li>
+                        <li><a href=""> FAQ's</a></li>
+                        <li><a href=""> Refund Policy</a></li>
+                        <li><a href=""> Offers</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>POPULAR CATAGORIES</h3>
+                    <ul class="p-0">
+                        <li><a href=""> Oral Care</a></li>
+                        <li><a href=""> Baby Nutrition</a></li>
+                        <li><a href=""> Herbal Care</a></li>
+                        <li><a href=""> Men's Health</a></li>
+                        <li><a href=""> Women's Health</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>Contact Us</h3>
+                    <ul class="p-0">
+                        <li>Contact : +923173775920</li>
+                        <br>
+                        <li>Email : arafay493@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>Contact With Us</h3>
+                    <ul class="p-0">
+                        <li>Contact : +923173775920</li>
+                        <br>
+                        <small>Sign Up To Receive Latest News and Updates</small><br>
+                        <span>Follow Us</span><br>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+
+
+<!-- Js Link -->
+<script src="index.js"></script>
+</html>

@@ -1,0 +1,18 @@
+footer {
+    background-color: #EEEEEE;
+}
+
+footer h3 {
+    color: #00569B;
+    font-size: 20px;
+}
+
+footer ul li a {
+    color: black;
+    font-size: 12px;
+}
+
+footer span {
+    color: #00569B;
+    font-size: 20px;
+}

@@ -1,0 +1,46 @@
+header {
+    background-color: #00569B;
+}
+
+header .navbar-brand {
+    font-size: 1.25rem !important;
+}
+
+header .navbar-brand:hover {
+    text-decoration: none !important;
+}
+
+
+
+header a {
+    color: white !important;
+    position: relative;
+    font-size: 12px !important;
+}
+
+header a::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+}
+
+header a:hover {
+    text-decoration: underline !important;
+}
+
+header button {
+    outline: none !important;
+}
+
+.bottom__header {
+    background-color: #F6F5F5;
+    color: black !important;
+}
+
+.bottom__header a {
+    color: black !important;
+    font-size: 13px;
+}

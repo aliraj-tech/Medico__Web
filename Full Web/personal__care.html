@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Care | Medico Web</title>
+    <!-- Font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+            text-decoration: none !important;
+        }
+
+        input:focus {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        input#search__catagory {
+            background-image: url("./images/search.png");
+            background-size: 14px;
+            background-repeat: no-repeat;
+            background-position: 95% 50%;
+            padding-right: 2rem;
+        }
+
+
+        .list ul i {
+            color: grey;
+        }
+
+        .list ul li a {
+            /* width: 100%; */
+            display: inline-block;
+        }
+        
+
+        .accordion-collapse{
+            height: 150px !important;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cart__items">
+        <div class="d-flex justify-content-between p-4">
+            <h3>Cart Summary</h3>
+            <button class="btn" id="cart__close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="simplecart_area">
+            <div class="simplecart_cart">
+                <span class="showCart">
+                    <span class="fa fa-shopping-cart"></span>
+                    <span class="simpleCart_quantity"></span> items - <span class="simpleCart_total"></span>
+                    <span class="dropdown fa fa-chevron-circle-down"></span>
+                </span>
+                <button class="simpleCart_checkout">Checkout</button>
+                <div id="cartPopover" style="display:none">
+                    <div class="simpleCart_items"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Medico Web</a>
+                <div>
+
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="mx-md-2">
+                            <button type="button" class="btn btn-primary position-relative" id="cart__btn">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                               
+                            </button>
+                        </li>
+                        <li>
+                            <small><a class="nav-link" href="login__signup.html" style="letter-spacing: 2px;">Login |
+                                    Sign up</a></small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="bottom__header d-flex justify-content-between">
+            <!-- <div class="explore me-auto">
+                <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Explore services
+                </button>
+                <ul class="dropdown-menu" style="padding: 0;background-color: #F6F5F5;">
+                    <li class="dropdown-item"><a href="" class="text-black"> Medicines</a></li>
+                    <hr class="dropdown-divider">
+                    <li class="dropdown-item"><a href="" class="text-black"> Doctor Consults</a></li>
+                    <hr class="dropdown-divider">
+                    <li class="dropdown-item"><a href="" class="text-black"> Pharmacy</a></li>
+                    <hr class="dropdown-divider">
+                    <li class="dropdown-item"><a href="" class="text-black"> Home Service</a></li>
+                </ul>
+            </div> -->
+            <div class="d-flex justify-content-center align-items-center" id="services">
+                <ul class="d-flex m-0 avalibilty" id="services">
+                    <li class="px-3"><a href="index.html">MEDICINES</a></li>
+                    <li class="px-3"><a href="personal__care.html">PERSONAL CARE</a></li>
+                    <li class="px-3"><a href="contact.html">Contact us</a></li>
+                    <li class="px-3"></li>
+                    <!-- <li class="px-3"><a href="#">ORGANIC</a></li>
+              <li class="px-3"><a href="#">HOME ESSENTIALS</a></li>
+              <li class="px-3"><a href="#">HEALTHCARE DEVICES</a></li> -->
+                </ul>
+                <button class="btn text-white rounded-0" style="background-color: #FB5F50; height: 100%;">
+                    <i class="fa-solid fa-location-dot"></i>
+                    DELIVERED TO KARACHI
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3">
+                    <div class="border-bottom w-50 m-auto d-flex justify-content-between my-3">
+                        <h5>Filter</h5>
+                        <small><a href="">Clear all</a></small>
+                    </div>
+                    <div class="mb-3 list">
+                        <input type="text" id="search__catagory" class="form-control rounded-0 w-75 m-auto"
+                            placeholder="Search within catagory">
+                        
+                        <!-- Accordian -->
+                        <div class="accordion mt-3" id="accordionExample">
+                            <div class="accordion-item border-0 border-bottom">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        Brands & Manufactures
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <ul class="p-0 m-0">
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-0 border-bottom">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Stock Avalibility
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <ul class="p-0 m-0">
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-0 border-bottom">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Price Range
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <ul class="p-0 m-0">
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item border-0">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        Discount
+                                    </button>
+                                </h2>
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        <ul class="p-0 m-0">
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                            <li class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    Abena
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products -->
+                <div class="col-9 my-5">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h4>Personal Care</h3>
+                        <div>
+                            <label for="">Sort by</label>
+                            <select class="p-2">
+                                <option selected>Default Order</option>
+                                <option value="1">Price Low to High</option>
+                                <option value="1">Price High to Low</option>
+                                <option value="1">Popularity</option>
+                                <option value="2">Recently Added</option>
+                                <option value="3">Alphbatically(A-Z)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row my-3">
+                        <div class="col-3">
+                            <div class="card">
+                                <img src="./images/paradontax.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Parodontax original</h5>
+                                    <div class="d-flex flex-column">
+                                        <small>Toothpaste</small>
+                                        <small>Pack Size: 120ml</small>
+
+                                        <p>Rs. 212 <small class="text-danger text-decoration-line-through">Rs. 235</small></p>
+                                    </div>
+
+                                    <a href="#" class="btn btn-primary w-100 rounded-0">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card">
+                                <img src="./images/paradontax.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Parodontax original</h5>
+                                    <div class="d-flex flex-column">
+                                        <small>Toothpaste</small>
+                                        <small>Pack Size: 120ml</small>
+                            
+                                        <p>Rs. 212 <small class="text-danger text-decoration-line-through">Rs. 235</small></p>
+                                    </div>
+                            
+                                    <a href="#" class="btn btn-primary w-100 rounded-0">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card">
+                                <img src="./images/paradontax.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Parodontax original</h5>
+                                    <div class="d-flex flex-column">
+                                        <small>Toothpaste</small>
+                                        <small>Pack Size: 120ml</small>
+                            
+                                        <p>Rs. 212 <small class="text-danger text-decoration-line-through">Rs. 235</small></p>
+                                    </div>
+                            
+                                    <a href="#" class="btn btn-primary w-100 rounded-0">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card">
+                                <img src="./images/paradontax.png" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Parodontax original</h5>
+                                    <div class="d-flex flex-column">
+                                        <small>Toothpaste</small>
+                                        <small>Pack Size: 120ml</small>
+                            
+                                        <p>Rs. 212 <small class="text-danger text-decoration-line-through">Rs. 235</small></p>
+                                    </div>
+                            
+                                    <a href="#" class="btn btn-primary w-100 rounded-0">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="container p-5">
+            <div class="row">
+                <div class="col">
+                    <h3>Medico Web</h3>
+                    <ul class="p-0">
+                        <li><a href=""> Careers</a></li>
+                        <li><a href=""> Blog</a></li>
+                        <li><a href=""> About us</a></li>
+                        <li><a href=""> Contact us</a></li>
+                        <li><a href=""> FAQ's</a></li>
+                        <li><a href=""> Refund Policy</a></li>
+                        <li><a href=""> Offers</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>POPULAR CATAGORIES</h3>
+                    <ul class="p-0">
+                        <li><a href=""> Oral Care</a></li>
+                        <li><a href=""> Baby Nutrition</a></li>
+                        <li><a href=""> Herbal Care</a></li>
+                        <li><a href=""> Men's Health</a></li>
+                        <li><a href=""> Women's Health</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>Contact Us</h3>
+                    <ul class="p-0">
+                        <li>Contact : +923173775920</li>
+                        <br>
+                        <li>Email : arafay493@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>Contact With Us</h3>
+                    <ul class="p-0">
+                        <li>Contact : +923173775920</li>
+                        <br>
+                        <small>Sign Up To Receive Latest News and Updates</small><br>
+                        <span>Follow Us</span><br>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+
+<!-- Js Link -->
+<script src="index.js"></script>
+</html>

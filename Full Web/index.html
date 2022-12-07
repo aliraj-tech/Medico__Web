@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page | Medico Web</title>
+    <!-- Font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <!-- Swipper js link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel='stylesheet' href="//fonts.googleapis.com/css?family=Duru+Sans|Istok+Web">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Swiper js Css */
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+
+        #socials li a {
+            width: 40px;
+            height: 40px;
+            color: white;
+            font-size: 0.8rem;
+            background-color: #00569B;
+        }
+
+        .slider__buttons {
+            margin-right: 10px;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            position: inherit !important;
+            top: 0 !important;
+            width: 1.2rem !important;
+            height: 1.2rem;
+            margin: 10px;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .card img {
+            height: 150px;
+            object-fit: contain;
+        }
+
+        .card h6 {
+            font-size: 0.9rem;
+        }
+
+        header .navbar-brand {
+            font-size: 2.25rem !important;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="cart__items">
+        <div class="d-flex justify-content-between p-4">
+            <h3>Cart Summary</h3>
+            <button class="btn" id="cart__close"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="simplecart_area">
+            <div class="simplecart_cart">
+                <span class="showCart">
+                    <span class="fa fa-shopping-cart"></span>
+                    <span class="simpleCart_quantity"></span> items - <span class="simpleCart_total"></span>
+                    <span class="dropdown fa fa-chevron-circle-down"></span>
+                </span>
+                <button class="simpleCart_checkout">Checkout</button>
+                <div id="cartPopover" style="display:none">
+                    <div class="simpleCart_items"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">Medico Web</a>
+                <div>
+
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="mx-md-2">
+                            <button type="button" class="btn btn-primary position-relative" id="cart__btn">
+                                <i class="fa-solid fa-cart-shopping"></i>
+                               
+                            </button>
+                        </li>
+                        <li>
+                            <small><a class="nav-link" href="login__signup.html" style="letter-spacing: 2px;">Login |
+                                    Sign up</a></small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="bottom__header d-flex justify-content-between">
+            <!-- <div class="explore me-auto">
+                <button class="btn dropdown-toggle border-0" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Explore services
+                </button>
+                <ul class="dropdown-menu" style="padding: 0;background-color: #F6F5F5;">
+                    <li class="dropdown-item"><a href="" class="text-black"> Medicines</a></li>
+                    <hr class="dropdown-divider">
+                    <li class="dropdown-item"><a href="" class="text-black"> Doctor Consults</a></li>
+                    <hr class="dropdown-divider">
+                    <li class="dropdown-item"><a href="" class="text-black"> Pharmacy</a></li>
+                    <hr class="dropdown-divider">
+                    <li class="dropdown-item"><a href="" class="text-black"> Home Service</a></li>
+                </ul>
+            </div> -->
+            <div class="d-flex justify-content-center align-items-center" id="services">
+                <ul class="d-flex m-0 avalibilty" id="services">
+                    <li class="px-3"><a href="index.html">MEDICINES</a></li>
+                    <li class="px-3"><a href="personal__care.html">PERSONAL CARE</a></li>
+                    <li class="px-3"><a href="contact.html">Contact us</a></li>
+                    <li class="px-3"></li>
+                    <!-- <li class="px-3"><a href="#">ORGANIC</a></li>
+              <li class="px-3"><a href="#">HOME ESSENTIALS</a></li>
+              <li class="px-3"><a href="#">HEALTHCARE DEVICES</a></li> -->
+                </ul>
+                <button class="btn text-white rounded-0" style="background-color: #FB5F50; height: 100%;">
+                    <i class="fa-solid fa-location-dot"></i>
+                    DELIVERED TO KARACHI
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-4">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="mb-0" style="padding: 0;background-color: #F6F5F5;">
+                        <li class="p-3"><a href="" class="text-black"> Medicines</a></li>
+                        <hr>
+                        <li class="p-3"><a href="contact.html" class="text-black"> Contact Us</a></li>
+                        <hr>
+                        <li class="p-3"><a href="" class="text-black"> Pharmacy</a></li>
+                        <hr>
+                        <li class="p-3"><a href="" class="text-black"> Home Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    <div class="swiper mySwiper" id="slider1">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="./images//slide__1.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="./images//silde__2.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="./images//slide__3.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="./images//slide__4.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="./images//slide__5.jpg" alt=""></div>
+                        </div>
+                        <div class="swiper-pagination mt-5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="">
+                    <div class="row">
+                        <div class="col-12 border-right min-vh-100">
+                            <div class="vh-100 overflow-scroll pr-2">
+                                <div class="d-flex justify-content-between align-items-end mt-3 mb-3 position-sticky bg-white"
+                                    style="top:0;z-index: 10">
+                                    <div class="">
+                                        <h3 class="text-primary mb-0">Items</h3>
+                                        
+
+                                    </div>
+                                    <div class="">
+                                        <div class="form-row">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="products" class="card-columns">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-4"> -->
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <section class="py-4">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <ul class="mb-0" style="padding: 0;background-color: #F6F5F5;">
+                        <li class="p-3"><a href="" class="text-black"> Medicines</a></li>
+                        <hr>
+                        <li class="p-3"><a href="" class="text-black"> Doctor Consults</a></li>
+                        <hr>
+                        <li class="p-3"><a href="" class="text-black"> Pharmacy</a></li>
+                        <hr>
+                        <li class="p-3"><a href="" class="text-black"> Home Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    <div class="swiper mySwiper" id="slider1">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="./images//slide__1.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="./images//silde__2.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="./images//slide__3.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="./images//slide__4.jpg" alt=""></div>
+                            <div class="swiper-slide"><img src="./images//slide__5.jpg" alt=""></div>
+                        </div>
+                        <div class="swiper-pagination mt-5"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Popular Products -->
+    <section class="mt-4">
+        
+
+        <div id="products" class="products">
+
+            <script id="hr-template" type="text/x-handlebars-template">
+                                  <div class="column one-third">
+                                    <div class="simpleCart_shelfItem item">
+                                      <div class="item_image"><img src="{{cells.Image}}"></div>
+                                      <h2 class="item_name">{{cells.Name}}</h2>
+                                      <div class="item_description">{{cells.Description}}</div>
+                                      <div style="margin-top:10px;">
+                                        <span class="item_price">${{cells.Price}}</span>
+                                        <button href="javascript:;" class="item_add">Add to Cart</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </script>
+
+        </div>
+
+
+    </section>
+
+
+
+
+    <footer>
+        <div class="container p-5">
+            <div class="row">
+                <div class="col">
+                    <h3>Medico Web</h3>
+                    <ul class="p-0">
+                        <li><a href=""> Careers</a></li>
+                        <li><a href=""> Blog</a></li>
+                        <li><a href=""> About us</a></li>
+                        <li><a href=""> Contact us</a></li>
+                        <li><a href=""> FAQ's</a></li>
+                        <li><a href=""> Refund Policy</a></li>
+                        <li><a href=""> Offers</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>POPULAR CATAGORIES</h3>
+                    <ul class="p-0">
+                        <li><a href=""> Oral Care</a></li>
+                        <li><a href=""> Baby Nutrition</a></li>
+                        <li><a href=""> Herbal Care</a></li>
+                        <li><a href=""> Men's Health</a></li>
+                        <li><a href=""> Women's Health</a></li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>Contact Us</h3>
+                    <ul class="p-0">
+                        <li class="mb-1">Phone : +923173775920</li>
+                        <li>Email : arafay493@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h3>Contact With Us</h3>
+                    <ul class="p-0">
+                        <li class="d-flex">
+
+                            <input type="email" class="form-control form-control-sm" placeholder="Your email address">
+                            <button class="btn btn-sm btn-outline-primary ms-1 rounded-1"><i
+                                    class="fa-regular fa-paper-plane"></i></button>
+                        </li>
+                        <br>
+                        <small>Sign Up To Receive Latest News and Updates</small><br>
+                        <span>Follow Us</span><br>
+                        <li>
+                            <ul id="socials" class="d-flex p-0 mt-2">
+                                <li><a href=""
+                                        class="rounded-circle d-flex justify-content-center align-items-center"><i
+                                            class="fa-brands fa-facebook-f"></i></a></li>
+                                <li class=" ms-2"><a href=""
+                                        class="rounded-circle d-flex justify-content-center align-items-center"><i
+                                            class="fa-brands fa-twitter"></a></i></li>
+                                <li class=" ms-2"><a href=""
+                                        class="rounded-circle d-flex justify-content-center align-items-center"><i
+                                            class="fa-brands fa-youtube"></a></i></li>
+                                <li class=" ms-2"><a href=""
+                                        class="rounded-circle d-flex justify-content-center align-items-center"><i
+                                            class="fa-brands fa-instagram"></a></i></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- Swipper Js -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<!-- Cart -->
+<script src="js/script.js"></script>
+<!-- Js Link -->
+<script src="index.js"></script>
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper("#slider1", {
+        spaceBetween: 30,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+</script>
+
+<!-- Popular product Slider -->
+<script>
+    var swiper = new Swiper("#slider2", {
+        slidesPerView: 5,
+        spaceBetween: 30,
+        slidesPerGroup: 3,
+        // loop: true,
+        // loopFillGroupWithBlank: true,
+
+        navigation: {
+            nextEl: ".pp__nextBtn",
+            prevEl: ".pp__prevBtn",
+        },
+    });
+</script>
+
+<!-- Daily Well-being Slider -->
+<script>
+
+    var swiper = new Swiper("#slider3", {
+        slidesPerView: 5,
+        spaceBetween: 30,
+        slidesPerGroup: 3,
+        // loop: true,
+        // loopFillGroupWithBlank: true,
+
+        navigation: {
+            nextEl: ".dw__nextBtn",
+            prevEl: ".dw__prevBtn",
+        },
+    });
+</script>
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/simpleCart.min.js"></script>
+<script src="js/handlebars.min.js"></script>
+<script src="js/sheetrock.min.js"></script>
+<script src="js/main.js"></script>
+
+
+
+
+</html>
